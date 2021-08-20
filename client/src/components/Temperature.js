@@ -9,7 +9,7 @@ const Temperature = () => {
 const fetchTemp = useCallback(async  () => {
     setIsError(false);
     try {
-        const response = await fetch('/api/data:3010');
+        const response = await fetch('http://api/api/data:3010');
         if(response.status !== 200) {
             throw new Error('Bad request');
         }
