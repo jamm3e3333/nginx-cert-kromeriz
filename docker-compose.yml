@@ -23,3 +23,11 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./server
+    depends_on: 
+      - nginx
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    depends_on:
+      - nginx
