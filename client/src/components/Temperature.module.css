@@ -1,0 +1,9 @@
+.container__temp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.para {
+    font-size: 2rem;
+}
