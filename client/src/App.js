@@ -1,7 +1,9 @@
-function App() {
+import Header from './components/Header';
+
+const App = () => {
   return (
     <div>
-      <h1>Mamaguevo</h1>
+      <Header />
     </div>
   );
 }
