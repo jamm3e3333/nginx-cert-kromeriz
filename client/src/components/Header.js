@@ -1,5 +1,7 @@
+import './Header.module.css';
+
 const Header = () => {
-    return <h1>Mamaguevot</h1>
+    return <h1>Mamaguevo</h1>
 }
 
 export default Header;
