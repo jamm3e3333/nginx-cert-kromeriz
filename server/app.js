@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const user = process.env.USER;
+const user = process.env.USR;
 const pass = process.env.PASS;
 
 const port = 3010;
