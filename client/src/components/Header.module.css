@@ -1,6 +1,40 @@
-h1 {
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(122, 173, 255, 0.6), 
+        rgba(36, 120, 255, 0.6)
+        ),
+    url('../assets/logo.jpeg') ;
+    background-position: center top;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    animation: toUp 1s ease-out;
+}
+
+.header h1 {
     text-transform: uppercase;
-    color: rgba(227, 54, 77, 1);
+    color: rgb(32, 32, 32);
     text-align: center;
     font-size: 6rem;
+}
+
+@media (max-height: 600px) {
+    .header h1 {
+        font-size: 3rem;
+    }
+}
+
+@keyframes toUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

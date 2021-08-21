@@ -1,7 +1,12 @@
-import './Header.module.css';
+import classes from './Header.module.css';
 
 const Header = () => {
-    return <h1>Mamaguevo</h1>
+    return (
+    <header className={classes.header}>
+        <h1>Mamaguevo</h1>
+    </header>    
+    )
+        
 }
 
 export default Header;

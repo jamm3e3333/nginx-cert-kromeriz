@@ -1,9 +1,15 @@
 .container__temp {
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
 }
 .para {
+    text-align: center;
+    margin: 2rem 0 2rem 0;
+    padding: 1rem 0;
     font-size: 2rem;
 }
