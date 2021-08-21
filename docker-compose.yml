@@ -24,7 +24,7 @@ services:
       dockerfile: Dockerfile
       context: ./server
     environment: 
-      - USER=${USER}
+      - USR=${USR}
       - PASS=${PASS}
     depends_on: 
       - nginx
