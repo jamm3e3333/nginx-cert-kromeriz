@@ -2,8 +2,8 @@
     height: 95vh;
     background-image: linear-gradient(
         to right bottom, 
-        rgba(122, 173, 255, 0.6), 
-        rgba(36, 120, 255, 0.6)
+        rgba(0, 97, 255, 1), 
+        rgba(158, 195, 255, 0.7)
         ),
     url('../assets/logo.jpeg') ;
     background-position: center top;
@@ -11,20 +11,37 @@
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: start;
     animation: toUp 1s ease-out;
 }
 
 .header h1 {
-    text-transform: uppercase;
-    color: rgb(32, 32, 32);
+    margin-top: 5rem;
+    padding: 3rem 0 3rem 0;
     text-align: center;
-    font-size: 6rem;
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 2;
+    letter-spacing: 3rem;
+    text-transform: uppercase;
+    width: 100%;
+    color: rgba(104, 104, 104, 0.7);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2rem 2rem rgba(0,0,0,0.25);
+    animation: toRight 1s ease-out;
 }
 
-@media (max-height: 600px) {
+@media (max-width: 800px) {
     .header h1 {
         font-size: 3rem;
+        letter-spacing: .5rem;
+    }
+
+    .header {
+        clip-path: none;
+        height: 92vh;
+        border-radius: 1rem;
     }
 }
 
@@ -36,5 +53,20 @@
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes toRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-5rem);
+    }
+    80% {
+        opacity: 0.7;
+        transform: translateX(2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
