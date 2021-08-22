@@ -9,10 +9,10 @@ const lngs = {
 }
 
 const App = () => {
+  const { t, i18n } = useTranslation();
   const setLangHandler = lang => {
     i18n.changeLanguage(lang);
   }
-  const { t, i18n } = useTranslation();
   return (
     <>
       <Header t={t} lngs={lngs} setLang={setLangHandler}/>
