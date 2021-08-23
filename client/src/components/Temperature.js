@@ -58,10 +58,8 @@ useEffect(() => {
     if(!isLoaded) {
         fetchTemp();
         setIsLoaded(true);
-        console.log('updated');
     }
     if(!isError){
-        console.log('on update');
         const fetchInt = setInterval(() => {
             fetchTemp();
         }, 60000);
