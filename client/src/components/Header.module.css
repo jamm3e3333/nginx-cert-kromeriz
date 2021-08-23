@@ -32,6 +32,14 @@
     animation: toRight 1s ease-out;
 }
 
+.lang__selector {
+    color: rgba(104, 104, 104, 0.897);
+    font-size: 1.8rem;
+    background: rgba(98, 166, 250, 0.7);
+    padding: .3rem;
+    border: none;
+}
+
 @media (max-width: 800px) {
     .header h1 {
         font-size: 3rem;

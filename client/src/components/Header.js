@@ -1,20 +1,22 @@
 import classes from './Header.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const Header = props => {
-    const selectedHandler = e => {
-        props.setLang(e.target.value.toLowerCase());
-    }
+    const [sel, setSel] = useState('en');
     
     const lngs = Object.keys(props.lngs);
 
+    const selectedHandler = useCallback(e => {
+        props.setLang(e.target.value.toLowerCase());
+    }, [props]);
+
     useEffect(() => {
-        props.setLang('en');
-    }, []);
+        setSel(localStorage.i18nextLng);
+    }, [selectedHandler]);
     
     return (
         <header className={classes.header}>
-            <select onChange={selectedHandler}>
+            <select className={classes['lang__selector']} value={sel.toUpperCase()} onChange={selectedHandler}>
                 {lngs.map((lng) => {
                     return (
                         <option 
