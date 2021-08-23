@@ -7,7 +7,8 @@ const pass = process.env.PASS;
 const port = 3010;
 const tempObj = {
     date: undefined,
-    temp: undefined
+    temp: undefined,
+    hum: undefined
 }
 
 app.use((err, req, res, next) => {
@@ -36,16 +37,17 @@ app.post('/data', (req, res) => {
                         .send({err: 'Anauthorized'});
         }
 
-        const { temp, date } = req.body.data;
-        if(!temp || !date) {
+        const { date, temp, hum } = req.body.data;
+        if(!temp || !date || !hum) {
             return res.status(404)
                         .send({message: 'Empty data was sent.'});
         }
 
         tempObj.temp = temp;
         tempObj.date = date;
+        tempObj.hum = hum;
 
-        res.status(200)
+        res.status(201)
             .send();
     }
     catch(e){

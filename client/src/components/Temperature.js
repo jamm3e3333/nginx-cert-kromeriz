@@ -2,20 +2,33 @@ import Card from './UI/Card';
 import { useEffect, useState, useCallback, Fragment } from 'react';
 import classes from './Temperature.module.css';
 
-const local = 'http://192.168.0.33:3010/data';
 const serv = 'https://jakubvala.com/api/data';
 
 const Temperature = props => {
     const [isError, setIsError] = useState(false);
     const [temp, setTemp] = useState(undefined);
+    const [hum, setHum] = useState(undefined);
     const [date, setDate] = useState(undefined);
+    const [isLoaded, setIsLoaded] = useState(false);
+
     let classTemp = '';
+    let classHum = '';
+
     if (Number.parseFloat(temp) > 30) {
         classTemp = classes['para__temp--high'];
     }
     else {
         classTemp = classes['para__temp--normal'];
     }
+
+    if (Number.parseFloat(hum) > 80) {
+        classHum = classes['para__temp--high'];
+    }
+    else {
+        classHum = classes['para__temp--normal'];
+    }
+
+
 const fetchTemp = useCallback(async  () => {
     setIsError(false);
     try {
@@ -28,7 +41,9 @@ const fetchTemp = useCallback(async  () => {
         if(!data) {
             throw new Error('No data');
         }
-        const { temp, date } = data;
+        const { temp, hum, date } = data;
+
+        setHum(hum);
         setTemp(temp);
         setDate(date);
     }
@@ -38,11 +53,18 @@ const fetchTemp = useCallback(async  () => {
     }
 }, []);
 
+
 useEffect(() => {
+    if(!isLoaded) {
+        fetchTemp();
+        setIsLoaded(true);
+        console.log('updated');
+    }
     if(!isError){
+        console.log('on update');
         const fetchInt = setInterval(() => {
             fetchTemp();
-        }, 5000);
+        }, 60000);
         return () =>  clearInterval(fetchInt);
     }
 }, [fetchTemp, isError])
@@ -50,9 +72,13 @@ useEffect(() => {
 const tempDiv = temp && date ? 
     <Card className={classes['container__temp']}>
         <p className={classes.para}>{props.t('temperatureDiv.date')}: </p>
-        <p className={classes['para__date']}>{new Date(date).toLocaleString()}</p>
+        {date && <p className={classes['para__date']}>{new Date(date).toLocaleString()}</p>}
+
         <p className={classes.para}>{props.t('temperatureDiv.temp')}: </p>
-        <p className={`${classes['para__temp']} ${classTemp && classTemp}`}>{temp}°C</p>
+        {tem && <p className={`${classes['para__temp']} ${classTemp && classTemp}`}>{temp} °C</p>}
+
+        <p className={classes.para}>{props.t('temperatureDiv.hum')}: </p>
+        {hum && <p className={`${classes['para__temp']} ${classTemp && classTemp}`}>{hum} %</p>}
     </Card> : undefined;
 
 return (

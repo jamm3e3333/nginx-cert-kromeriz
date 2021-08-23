@@ -11,7 +11,7 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    debug: true,
+    debug: false,
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
@@ -24,7 +24,8 @@ i18n
           },
           temperatureDiv: {
               date: 'Time of temperature measurement',
-              temp: 'Temperature in my room'
+              temp: 'Temperature in my room',
+              hum: 'Humidity in my room'
           }    
         }
       },
@@ -35,7 +36,8 @@ i18n
               },
               temperatureDiv: {
                 date: 'El tiempo de tomar la temperatura',
-                temp: 'La temperature en mi cuarto'
+                temp: 'La temperature en mi cuarto',
+                hum: 'La humedad en mi cuarto'
             } 
           }
       },
@@ -46,7 +48,8 @@ i18n
               },
               temperatureDiv: {
                 date: 'Čas měření teploty',
-                temp: 'Teplota v mém pokoji'
+                temp: 'Teplota v mém pokoji',
+                hum: 'Vlhkost v mém pokoji'
             } 
           }
       }
