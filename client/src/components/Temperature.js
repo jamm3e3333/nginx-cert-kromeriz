@@ -75,7 +75,7 @@ const tempDiv = temp && date ?
         {date && <p className={classes['para__date']}>{new Date(date).toLocaleString()}</p>}
 
         <p className={classes.para}>{props.t('temperatureDiv.temp')}: </p>
-        {tem && <p className={`${classes['para__temp']} ${classTemp && classTemp}`}>{temp} °C</p>}
+        {temp && <p className={`${classes['para__temp']} ${classTemp && classTemp}`}>{temp} °C</p>}
 
         <p className={classes.para}>{props.t('temperatureDiv.hum')}: </p>
         {hum && <p className={`${classes['para__temp']} ${classTemp && classTemp}`}>{hum} %</p>}
