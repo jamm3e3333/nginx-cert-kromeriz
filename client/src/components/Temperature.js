@@ -14,14 +14,14 @@ const Temperature = props => {
     let classTemp = '';
     let classHum = '';
 
-    if (Number.parseFloat(temp) > 30) {
+    if (Number.parseFloat(temp) > 29.1) {
         classTemp = classes['para__temp--high'];
     }
     else {
         classTemp = classes['para__temp--normal'];
     }
 
-    if (Number.parseFloat(hum) > 80) {
+    if (Number.parseFloat(hum) > 85) {
         classHum = classes['para__temp--high'];
     }
     else {
@@ -76,7 +76,7 @@ const tempDiv = temp && date ?
         {temp && <p className={`${classes['para__temp']} ${classTemp && classTemp}`}>{temp} °C</p>}
 
         <p className={classes.para}>{props.t('temperatureDiv.hum')}: </p>
-        {hum && <p className={`${classes['para__temp']} ${classTemp && classTemp}`}>{hum} %</p>}
+        {hum && <p className={`${classes['para__temp']} ${classHum && classHum}`}>{hum} %</p>}
     </Card> : undefined;
 
 return (
